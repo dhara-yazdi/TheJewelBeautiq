@@ -1,6 +1,4 @@
-# The Jewel Beautiq
-
-# Luxe Jewels - Luxury Jewellery Catalog
+# The Jewel Beautiq - Luxury Jewellery Catalog
 
 A production-ready jewellery catalog website built with **Angular 19** and **ASP.NET Core 9**.
 
