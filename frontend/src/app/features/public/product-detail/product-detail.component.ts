@@ -1,0 +1,105 @@
+import { Component, OnInit, signal } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { CurrencyPipe, DecimalPipe } from '@angular/common';
+import { ProductService } from '../../../core/services/product.service';
+import { Product } from '../../../shared/models/product.model';
+import { LoadingSpinnerComponent } from '../../../shared/components/loading-spinner/loading-spinner.component';
+
+@Component({
+  selector: 'app-product-detail',
+  standalone: true,
+  imports: [RouterLink, LoadingSpinnerComponent, CurrencyPipe, DecimalPipe],
+  template: `
+    <div class="pt-24 min-h-screen">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        @if (loading()) {
+          <app-loading-spinner />
+        } @else if (product()) {
+          <div class="mb-6">
+            <a routerLink="/collections" class="text-gold hover:text-gold-light transition-colors">
+              &larr; Back to Collections
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Image Gallery -->
+            <div>
+              <div class="aspect-square bg-luxury-dark border border-luxury-gray rounded-lg flex items-center justify-center mb-4">
+                <div class="text-9xl text-gold/30">&#9830;</div>
+              </div>
+              @if (product()!.images.length > 1) {
+                <div class="grid grid-cols-4 gap-3">
+                  @for (img of product()!.images; track img.id) {
+                    <div class="aspect-square bg-luxury-dark border border-luxury-gray rounded cursor-pointer hover:border-gold transition-colors flex items-center justify-center">
+                      <div class="text-2xl text-gold/30">&#9830;</div>
+                    </div>
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- Product Info -->
+            <div>
+              <p class="text-sm text-gold tracking-widest uppercase mb-2">{{ product()!.categoryName }}</p>
+              <h1 class="text-3xl md:text-4xl font-bold text-luxury-white mb-4">{{ product()!.name }}</h1>
+              <p class="text-4xl font-bold text-gold mb-6">{{ product()!.price | currency }}</p>
+
+              <div class="border-t border-b border-luxury-gray py-6 mb-6">
+                <p class="text-luxury-silver leading-relaxed">{{ product()!.description }}</p>
+              </div>
+
+              <div class="space-y-3 mb-8">
+                <div class="flex justify-between">
+                  <span class="text-luxury-silver">Material</span>
+                  <span class="text-luxury-white font-medium">{{ product()!.material }}</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-luxury-silver">Weight</span>
+                  <span class="text-luxury-white font-medium">{{ product()!.weight | number:'1.1-1' }}g</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-luxury-silver">SKU</span>
+                  <span class="text-luxury-white font-medium">{{ product()!.sku }}</span>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <a [routerLink]="['/contact']" [queryParams]="{product: product()!.id}"
+                   class="btn-gold w-full text-center block text-lg">
+                  Inquire About This Piece
+                </a>
+                <a routerLink="/contact" class="btn-outline-gold w-full text-center block">
+                  Book a Viewing
+                </a>
+              </div>
+            </div>
+          </div>
+        } @else {
+          <div class="text-center py-20">
+            <h2 class="text-2xl text-luxury-silver">Product not found</h2>
+            <a routerLink="/collections" class="btn-gold mt-6 inline-block">Back to Collections</a>
+          </div>
+        }
+      </div>
+    </div>
+  `
+})
+export class ProductDetailComponent implements OnInit {
+  product = signal<Product | null>(null);
+  loading = signal(true);
+
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const id = +params['id'];
+      this.productService.getProductById(id).subscribe({
+        next: product => { this.product.set(product); this.loading.set(false); },
+        error: () => { this.product.set(null); this.loading.set(false); }
+      });
+    });
+  }
+}
