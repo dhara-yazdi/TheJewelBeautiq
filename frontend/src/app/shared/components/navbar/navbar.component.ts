@@ -10,7 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
           <a routerLink="/" class="flex items-center space-x-2">
-            <span class="text-2xl font-bold gold-gradient-text tracking-wider">LUXE JEWELS</span>
+            <span class="text-2xl font-bold gold-gradient-text tracking-wider">The Jewel Beautiq</span>
           </a>
 
           <div class="hidden md:flex items-center space-x-8">

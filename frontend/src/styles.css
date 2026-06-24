@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
-@theme {
+/* @theme {
   --color-gold: #D4AF37;
   --color-gold-light: #E8C547;
   --color-gold-dark: #B8860B;
@@ -9,13 +10,38 @@
   --color-luxury-gray: #2A2A2A;
   --color-luxury-silver: #C0C0C0;
   --color-luxury-white: #F5F5F5;
+} */
+
+@theme {
+  /* --color-gold: #D4AF37;
+  --color-gold-light: #F4E4A6;
+  --color-gold-dark: #B8860B; */
+
+  --color-gold: #C6A769;
+  --color-gold-light: #D9BE8A;
+  --color-gold-dark: #A7864B;
+
+
+  --color-luxury-black: #050505;
+  --color-luxury-dark: #111111;
+  --color-luxury-gray: #1E1E1E;
+
+  --color-luxury-silver: #D0D0D0;
+  --color-luxury-white: #FAFAFA;
 }
 
 @layer base {
-  body {
+  /* body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     background-color: var(--color-luxury-black);
     color: var(--color-luxury-white);
+  } */
+
+  body {
+    font-family: 'Cinzel', serif;
+    background-color: var(--color-luxury-black);
+    color: var(--color-luxury-white);
+    letter-spacing: 0.03em;
   }
 
   ::-webkit-scrollbar {
@@ -37,27 +63,51 @@
 }
 
 @layer components {
-  .btn-gold {
+  /* .btn-gold {
     @apply bg-gold text-luxury-black font-semibold px-6 py-3 rounded transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20;
+  } */
+
+  .btn-gold {
+    @apply bg-gold text-luxury-black font-semibold px-6 py-3 rounded transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/30;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   .btn-outline-gold {
     @apply border-2 border-gold text-gold font-semibold px-6 py-3 rounded transition-all duration-300 hover:bg-gold hover:text-luxury-black;
   }
 
-  .card-luxury {
+  /* .card-luxury {
     @apply bg-luxury-dark border border-luxury-gray rounded-lg overflow-hidden transition-all duration-300 hover:border-gold/50 hover:shadow-lg hover:shadow-gold/10;
+  } */
+
+  .card-luxury {
+    @apply bg-luxury-dark border border-luxury-gray rounded-lg overflow-hidden transition-all duration-300 hover:border-gold/50 hover:shadow-lg hover:shadow-gold/20;
+
+    background: linear-gradient(180deg,
+        #151515,
+        #0b0b0b);
   }
 
   .input-luxury {
     @apply w-full bg-luxury-gray border border-luxury-gray text-luxury-white px-4 py-3 rounded focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors;
   }
 
+  /* .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-4;
+  } */
+
   .section-title {
     @apply text-3xl md:text-4xl font-bold text-center mb-4;
+
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
 
   .gold-gradient-text {
     @apply bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent;
   }
+
 }

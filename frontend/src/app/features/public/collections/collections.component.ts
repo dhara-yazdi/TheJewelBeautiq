@@ -10,74 +10,7 @@ import { LoadingSpinnerComponent } from '../../../shared/components/loading-spin
   selector: 'app-collections',
   standalone: true,
   imports: [RouterLink, FormsModule, LoadingSpinnerComponent, CurrencyPipe],
-  template: `
-    <div class="pt-24 min-h-screen">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 class="section-title"><span class="gold-gradient-text">Our Collections</span></h1>
-        <p class="text-luxury-silver text-center mb-12 max-w-2xl mx-auto">
-          Browse our exquisite selection of fine jewellery, crafted for those who appreciate true luxury.
-        </p>
-
-        <!-- Filters -->
-        <div class="flex flex-col md:flex-row gap-4 mb-10">
-          <div class="flex-1">
-            <input type="text" placeholder="Search jewellery..." [ngModel]="searchTerm()"
-                   (ngModelChange)="onSearch($event)" class="input-luxury" />
-          </div>
-          <div class="flex gap-2 flex-wrap">
-            <button (click)="filterByCategory(null)"
-                    [class]="!selectedCategory() ? 'btn-gold text-sm px-4 py-2' : 'btn-outline-gold text-sm px-4 py-2'">
-              All
-            </button>
-            @for (cat of categoryService.categories(); track cat.id) {
-              <button (click)="filterByCategory(cat.id)"
-                      [class]="selectedCategory() === cat.id ? 'btn-gold text-sm px-4 py-2' : 'btn-outline-gold text-sm px-4 py-2'">
-                {{ cat.name }}
-              </button>
-            }
-          </div>
-        </div>
-
-        @if (productService.loading()) {
-          <app-loading-spinner />
-        } @else {
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            @for (product of productService.products(); track product.id) {
-              <a [routerLink]="['/product', product.id]" class="card-luxury group cursor-pointer">
-                <div class="aspect-square bg-luxury-gray flex items-center justify-center overflow-hidden">
-                  <div class="text-6xl text-gold/30 group-hover:text-gold/50 transition-colors">&#9830;</div>
-                </div>
-                <div class="p-5">
-                  <p class="text-xs text-gold tracking-widest uppercase mb-1">{{ product.categoryName }}</p>
-                  <h3 class="text-base font-semibold text-luxury-white group-hover:text-gold transition-colors mb-1">
-                    {{ product.name }}
-                  </h3>
-                  <p class="text-sm text-luxury-silver mb-2">{{ product.material }}</p>
-                  <p class="text-gold font-bold text-lg">{{ product.price | currency }}</p>
-                </div>
-              </a>
-            } @empty {
-              <div class="col-span-full text-center py-12">
-                <p class="text-luxury-silver text-lg">No products found.</p>
-              </div>
-            }
-          </div>
-
-          <!-- Pagination -->
-          @if (totalPages() > 1) {
-            <div class="flex justify-center gap-2 mt-10">
-              @for (p of pages(); track p) {
-                <button (click)="goToPage(p)"
-                        [class]="currentPage() === p ? 'bg-gold text-luxury-black px-4 py-2 rounded font-semibold' : 'bg-luxury-gray text-luxury-white px-4 py-2 rounded hover:bg-luxury-gray/80'">
-                  {{ p }}
-                </button>
-              }
-            </div>
-          }
-        }
-      </div>
-    </div>
-  `
+  templateUrl: './collections.component.html',
 })
 export class CollectionsComponent implements OnInit {
   selectedCategory = signal<number | null>(null);
