@@ -11,7 +11,7 @@ import { AuthService } from '../../../core/services/auth.service';
     <div class="min-h-screen flex items-center justify-center bg-luxury-black">
       <div class="w-full max-w-md p-8">
         <div class="text-center mb-10">
-          <h1 class="text-3xl font-bold gold-gradient-text mb-2">The Jewel Beautiq</h1>
+          <h1 class="text-3xl font-bold gold-gradient-text mb-2">The Jewel BeautiQ</h1>
           <p class="text-luxury-silver">Admin Portal</p>
         </div>
 
