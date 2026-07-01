@@ -10,7 +10,7 @@ import { ApiService } from '../../../core/services/api.service';
 @Component({
   selector: 'app-collections',
   standalone: true,
-  imports: [RouterLink, FormsModule, LoadingSpinnerComponent, CurrencyPipe],
+  imports: [RouterLink, FormsModule, LoadingSpinnerComponent],
   templateUrl: './collections.component.html',
 })
 export class CollectionsComponent implements OnInit {

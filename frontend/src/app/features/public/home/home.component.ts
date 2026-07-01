@@ -4,6 +4,7 @@ import { ProductService } from '../../../core/services/product.service';
 import { CategoryService } from '../../../core/services/category.service';
 import { LoadingSpinnerComponent } from '../../../shared/components/loading-spinner/loading-spinner.component';
 import { CurrencyPipe } from '@angular/common';
+import { ApiService } from '../../../core/services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ import { CurrencyPipe } from '@angular/common';
 export class HomeComponent implements OnInit {
   constructor(
     public productService: ProductService,
-    public categoryService: CategoryService
+    public categoryService: CategoryService,
+    public api: ApiService
   ) {}
 
   ngOnInit(): void {
