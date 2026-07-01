@@ -9,7 +9,7 @@ import { ApiService } from '../../../core/services/api.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, LoadingSpinnerComponent, CurrencyPipe],
+  imports: [RouterLink, LoadingSpinnerComponent],
   templateUrl: './home.component.html'
  
 })
