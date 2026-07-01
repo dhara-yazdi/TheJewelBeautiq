@@ -61,7 +61,7 @@
     /* font-family: 'Cormorant Garamond', serif; */
     /* font-family: 'Playfair Display', cursive; */
     font-family: 'Lato', sans-serif;
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 500;
     background-color: var(--color-luxury-black);
     color: var(--color-luxury-white);
@@ -75,7 +75,7 @@
   h5,
   h6 {
     font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
+    /* font-style: italic; */
     font-weight: 600;
     letter-spacing: 0.08em;
   }

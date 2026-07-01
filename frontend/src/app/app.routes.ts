@@ -6,14 +6,14 @@ export const routes: Routes = [
     path: '',
     loadComponent: () => import('./features/public/home/home.component').then(m => m.HomeComponent)
   },
-  // {
-  //   path: 'collections',
-  //   loadComponent: () => import('./features/public/collections/collections.component').then(m => m.CollectionsComponent)
-  // },
   {
     path: 'collections',
-    loadComponent: () => import('./shared/components/coming-soon/coming-soon.component').then(m => m.ComingSoonComponent)
+    loadComponent: () => import('./features/public/collections/collections.component').then(m => m.CollectionsComponent)
   },
+  // {
+  //   path: 'collections',
+  //   loadComponent: () => import('./shared/components/coming-soon/coming-soon.component').then(m => m.ComingSoonComponent)
+  // },
   {
     path: 'product/:id',
     loadComponent: () => import('./features/public/product-detail/product-detail.component').then(m => m.ProductDetailComponent)

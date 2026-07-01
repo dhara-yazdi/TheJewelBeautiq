@@ -5,6 +5,7 @@ import { CurrencyPipe } from '@angular/common';
 import { ProductService } from '../../../core/services/product.service';
 import { CategoryService } from '../../../core/services/category.service';
 import { LoadingSpinnerComponent } from '../../../shared/components/loading-spinner/loading-spinner.component';
+import { ApiService } from '../../../core/services/api.service';
 
 @Component({
   selector: 'app-collections',
@@ -22,6 +23,7 @@ export class CollectionsComponent implements OnInit {
   constructor(
     public productService: ProductService,
     public categoryService: CategoryService,
+    public api: ApiService,
     private route: ActivatedRoute
   ) {}
 
