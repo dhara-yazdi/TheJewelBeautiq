@@ -42,13 +42,16 @@
   @if (productService.loading()) {
   <app-loading-spinner />
   } @else {
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
     @for (product of productService.featuredProducts(); track product.id) {
-    <a [routerLink]="['/product', product.id]" class="card-luxury group cursor-pointer">@if (product.primaryImageUrl) {
-      <img [src]="this.api.imgUrl + product.primaryImageUrl" [alt]="product.name"
-        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+    <a [routerLink]="['/product', product.id]" class="card-luxury group cursor-pointer w-full max-w-[320px]">
+      @if (product.primaryImageUrl) {
+      <div class="h-64 overflow-hidden">
+        <img [src]="this.api.imgUrl + product.primaryImageUrl" [alt]="product.name"
+          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+      </div>
       } @else {
-      <div class="aspect-square bg-luxury-gray flex items-center justify-center overflow-hidden">
+      <div class="h-64 bg-luxury-gray flex items-center justify-center overflow-hidden">
         <div class="text-6xl text-gold/30 group-hover:text-gold/50 transition-colors">
           &#9830;
         </div>
