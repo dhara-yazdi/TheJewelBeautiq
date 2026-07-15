@@ -1,180 +1,329 @@
-<!-- Hero Section -->
-<section class="relative h-screen flex items-center justify-center overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-luxury-black via-luxury-black/90 to-luxury-black"></div>
-  <div
-    class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent">
+<!-- ================= HERO ================= -->
+
+<section class="relative h-screen overflow-hidden bg-black">
+
+  <!-- Background -->
+  <div class="absolute inset-0">
+
+    <img src="/assets/images/hero-banner.png" class="w-full h-full object-cover object-[72%] scale-[1.08]"
+      alt="The Jewel BeautiQ">
+
+    <!-- Slight dark overlay -->
+    <div class="absolute inset-0 bg-black/10"></div>
+
+    <!-- Left gradient -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/88 via-black/48 via-35% to-transparent"></div>
+
   </div>
 
-  <div class="relative z-10 text-center px-4 max-w-4xl">
-    <h1 class="text-6xl md:text-5xl font-bold mb-6 tracking-tight">
-      <span class="gold-gradient-text">Crafting Your Unique Sparkle</span>
-    </h1>
+  <!-- Content -->
+  <div class="relative z-10 max-w-[1500px] mx-auto h-full px-8 lg:px-16 xl:px-20">
 
-    <p class="text-xl md:text-2xl text-luxury-silver mb-10 leading-relaxed">
-      Discover exquisite jewellery and certified loose diamonds crafted with passion and precision.
-      Each piece is a masterwork of artistry and luxury.
-    </p>
+    <div class="flex items-center h-full pt-10 lg:pt-16">
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a routerLink="/collections" class="btn-gold text-lg">
-        Explore Collections
-      </a>
-    </div>
-  </div>
+      <div class="max-w-[560px]">
 
-  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-    <svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-    </svg>
-  </div>
-</section>
+        <!-- Tag -->
+        <p class="uppercase tracking-[9px] text-gold text-[12px] mb-7 whitespace-nowrap opacity-90">
 
-<!-- Featured Products -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-  <h2 class="section-title">
-    <span class="gold-gradient-text">Featured Collection</span>
-  </h2>
+          Fine Jewellery • Certified Loose Diamonds
 
-  <p class="text-luxury-silver text-center mb-12 max-w-2xl mx-auto">
-    Our most coveted pieces, handpicked for their extraordinary beauty and craftsmanship.
-  </p>
-
-  @if (productService.loading()) {
-  <app-loading-spinner />
-  } @else {
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-    @for (product of productService.featuredProducts(); track product.id) {
-    <a [routerLink]="['/product', product.id]" class="card-luxury group cursor-pointer w-full max-w-[320px]">
-      @if (product.primaryImageUrl) {
-      <div class="h-64 overflow-hidden">
-        <img [src]="this.api.imgUrl + product.primaryImageUrl" [alt]="product.name"
-          class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-      </div>
-      } @else {
-      <div class="h-64 bg-luxury-gray flex items-center justify-center overflow-hidden">
-        <div class="text-6xl text-gold/30 group-hover:text-gold/50 transition-colors">
-          &#9830;
-        </div>
-      </div>
-      }
-      <div class="p-6">
-        <p class="text-xs text-gold tracking-widest uppercase mb-2">
-          {{ product.categoryName }}
         </p>
 
-        <h3 class="text-lg font-semibold text-luxury-white group-hover:text-gold transition-colors mb-2">
-          {{ product.name }}
-        </h3>
-<!-- 
-        <p class="text-gold font-bold text-xl">
-          {{ product.price | currency }}
-        </p> -->
-      </div>
-    </a>
-    }
-  </div>
-  }
+        <!-- Heading -->
+        <h1
+          class="font-serif font-normal text-[42px] md:text-[44px] lg:text-[48px] xl:text-[52px] leading-[1.06] tracking-[-0.03em] text-white">
 
-  <div class="text-center mt-12">
-    <a routerLink="/collections" class="btn-outline-gold">
-      View All Collections
-    </a>
+          Crafted for
+
+          <span class="block mt-2 gold-gradient-text pb-2">
+
+            Timeless Elegance
+
+          </span>
+
+        </h1>
+
+        <!-- Description -->
+        <p class="mt-10 max-w-[620px] text-[16px] lg:text-[17px] leading-[2rem] text-white/75">
+
+          Discover handcrafted jewellery, bespoke creations and certified
+          loose diamonds designed for every unforgettable moment.
+
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex gap-5 mt-12">
+
+          <a routerLink="/collections"
+            class="inline-flex items-center justify-center h-[46px] px-9 bg-gold text-black uppercase tracking-[2.5px] text-[12px] font-medium transition duration-300 hover:bg-[#dcc58a]">
+
+            Explore Collection
+
+          </a>
+
+          <a routerLink="/contact"
+            class="inline-flex items-center justify-center h-[46px] px-9 border border-gold/60 text-gold uppercase tracking-[2.5px] text-[12px] font-medium transition duration-300 hover:bg-gold hover:text-black">
+
+            Contact Us
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
 
-<!-- Categories -->
-<!-- <section class="bg-luxury-dark py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="section-title">
-      <span class="gold-gradient-text">Shop by Category</span>
-    </h2>
+<!-- ================= FEATURED ================= -->
 
-    <p class="text-luxury-silver text-center mb-12 max-w-2xl mx-auto">
-      Explore our curated collections across every category of fine jewellery.
-    </p>
+<section class="py-28 bg-[#0b0b0b]">
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-      @for (category of categoryService.categories(); track category.id) {
-        <a
-          [routerLink]="['/collections']"
-          [queryParams]="{ category: category.id }"
-          class="group text-center p-6 rounded-lg border border-luxury-gray hover:border-gold/50 transition-all duration-300"
-        >
-          <div
-            class="w-16 h-16 mx-auto mb-4 rounded-full bg-luxury-gray flex items-center justify-center group-hover:bg-gold/10 transition-colors"
-          >
-            <span class="text-2xl text-gold">&#9830;</span>
+  <div class="max-w-[1500px] mx-auto px-8 lg:px-16">
+
+    <!-- Heading -->
+
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+
+      <div>
+
+        <p class="uppercase tracking-[6px] text-gold text-[11px] mb-3">
+
+          Signature Collection
+
+        </p>
+
+        <h2 class="section-title text-left">
+          Our Signature Creations
+        </h2>
+
+        <p class="text-white/65 max-w-xl leading-8">
+
+          A curated selection of handcrafted jewellery and certified
+          diamonds created with exceptional artistry.
+
+        </p>
+
+      </div>
+
+      <a routerLink="/collections"
+        class="uppercase tracking-[4px] text-[12px] text-gold hover:tracking-[5px] transition-all duration-300">
+
+        Explore Collection →
+
+      </a>
+
+    </div>
+
+    @if(productService.loading()){
+
+    <app-loading-spinner />
+
+    } @else {
+
+    <div class="grid lg:grid-cols-12 gap-8">
+
+      <!-- LARGE CARD -->
+
+      <div class="lg:col-span-7">
+
+        @if(productService.featuredProducts().length){
+
+        <a [routerLink]="['/product',productService.featuredProducts()[0].id]" class="group block">
+
+          <div class="overflow-hidden bg-black">
+
+            <img [src]="api.imgUrl + productService.featuredProducts()[0].primaryImageUrl"
+              class="w-full h-[580px] object-cover transition duration-700 group-hover:scale-[1.03]">
+
           </div>
 
-          <h3 class="text-luxury-white font-semibold group-hover:text-gold transition-colors">
-            {{ category.name }}
-          </h3>
+          <div class="pt-6">
 
-          <p class="text-luxury-silver text-sm mt-1">
-            {{ category.productCount }} pieces
-          </p>
+
+            <h3
+              class="text-[34px] font-serif font-medium text-white leading-tight transition-colors duration-300 group-hover:text-gold">
+              {{productService.featuredProducts()[0].name}}
+            </h3>
+
+            <!--
+      <p class="text-white/60 mt-3 max-w-md">
+
+        {{productService.featuredProducts()[0].description}}
+
+      </p>
+      -->
+
+          </div>
+
         </a>
-      }
+
+        }
+
+      </div>
+
+      <!-- RIGHT GRID -->
+      <!-- SMALL CARDS -->
+
+      <div class="lg:col-span-5">
+
+        <div class="space-y-12">
+
+          @for(product of productService.featuredProducts().slice(1,4);track product.id){
+
+          <a [routerLink]="['/product',product.id]" class="group block">
+
+            <div class="grid grid-cols-[170px_1fr] gap-6 items-center">
+
+              <div class="overflow-hidden bg-black">
+
+                <img [src]="api.imgUrl + product.primaryImageUrl"
+                  class="w-full h-[180px] object-cover transition duration-700 group-hover:scale-[1.03]">
+
+              </div>
+
+              <div>
+
+                <h3
+                  class="text-[22px] font-serif font-medium text-white leading-snug transition-colors duration-300 group-hover:text-gold">
+                  {{product.name}}
+                </h3>
+
+                <!--
+          <p class="text-white/60 text-sm">
+
+            {{product.description}}
+
+          </p>
+          -->
+
+              </div>
+
+            </div>
+
+          </a>
+
+          }
+
+        </div>
+
+      </div>
+
     </div>
+
+    }
+
   </div>
-</section> -->
+
+</section>
 
 <!-- Why Choose Us -->
-<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-  <h2 class="section-title">
-    <span class="gold-gradient-text">Why Choose The Jewel BeautiQ</span>
-  </h2>
+<!-- ================= OUR HERITAGE ================= -->
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
-    <div class="text-center">
-      <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gold/10 flex items-center justify-center">
-        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
+<section class="py-32 bg-black">
+
+  <div class="max-w-[1500px] mx-auto px-8 lg:px-16">
+
+    <div class="grid lg:grid-cols-2 gap-24 items-center">
+
+      <!-- Image -->
+
+      <div class="overflow-hidden">
+
+        <img
+          src="/assets/images/craftsman.jpg"
+          alt="Craftsmanship"
+          class="w-full h-[560px] object-cover">
+
       </div>
 
-      <h3 class="text-lg font-semibold text-luxury-white mb-3">
-        Certified Quality
-      </h3>
+      <!-- Content -->
 
-      <p class="text-luxury-silver text-sm">
-        Every gemstone is certified and every piece meets the highest standards of craftsmanship.
-      </p>
-    </div>
+      <div>
 
-    <div class="text-center">
-      <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gold/10 flex items-center justify-center">
-        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-            d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-        </svg>
+        <p class="uppercase tracking-[6px] text-gold text-[11px] mb-5">
+
+          Our Heritage
+
+        </p>
+
+        <h2 class="section-title text-left !mb-8">
+
+          Crafted Around
+
+          <span class="gold-gradient-text block">
+
+            Your Vision
+
+          </span>
+
+        </h2>
+
+        <p class="text-white/70 leading-9 text-[17px] mb-10">
+
+          Every exceptional piece begins with a vision.
+
+          At The Jewel BeautiQ, we transform certified diamonds into timeless
+          jewellery designed exclusively around your vision.
+
+          From bespoke engagement rings to elegant everyday creations,
+          every piece is manufactured with exceptional precision,
+          attention to detail and uncompromising quality.
+
+        </p>
+
+        <div class="space-y-6 mb-12">
+
+          <div class="flex items-center gap-4">
+
+            <span class="text-gold text-[15px] leading-none">✦</span>
+
+            <span class="text-white/85">
+              Custom Designed Diamond Jewellery
+            </span>
+
+          </div>
+
+          <div class="flex items-center gap-4">
+
+            <span class="text-gold text-[15px] leading-none">✦</span>
+
+            <span class="text-white/85">
+              Certified Loose Diamonds
+            </span>
+
+          </div>
+
+          
+
+          <div class="flex items-center gap-4">
+
+            <span class="text-gold text-[15px] leading-none">✦</span>
+
+            <span class="text-white/85">
+              Private Design Consultation
+            </span>
+
+          </div>
+
+        </div>
+
+        <a
+          routerLink="/about"
+          class="uppercase tracking-[4px] text-[12px] text-gold hover:tracking-[5px] transition-all duration-300">
+
+          Discover Our Story →
+
+        </a>
+
       </div>
 
-      <h3 class="text-lg font-semibold text-luxury-white mb-3">
-        Luxury Packaging
-      </h3>
-
-      <p class="text-luxury-silver text-sm">
-        Each piece arrives in our signature presentation box, perfect for gifting.
-      </p>
     </div>
 
-    <div class="text-center">
-      <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-gold/10 flex items-center justify-center">
-        <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      </div>
-
-      <h3 class="text-lg font-semibold text-luxury-white mb-3">
-        Lifetime Warranty
-      </h3>
-
-      <p class="text-luxury-silver text-sm">
-        We stand behind our artistry with a lifetime warranty on all jewellery pieces.
-      </p>
-    </div>
   </div>
+
 </section>

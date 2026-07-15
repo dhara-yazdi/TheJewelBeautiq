@@ -38,8 +38,10 @@
         <div class="bg-luxury-dark border border-luxury-gray rounded-lg overflow-hidden"
             [class.border-gold]="img.isPrimary">
             @if (img.imageUrl) {
-            <img [src]="this.api.imgUrl + img.imageUrl" [alt]="img.altText"
-                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            <div class="aspect-square overflow-hidden">
+                <img [src]="this.api.imgUrl + img.imageUrl" [alt]="img.altText"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            </div>
             } @else {
             <div class="aspect-square bg-luxury-gray flex items-center justify-center">
                 <div class="text-4xl text-gold/30">&#9830;</div>

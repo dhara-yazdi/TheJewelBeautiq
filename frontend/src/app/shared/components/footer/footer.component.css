@@ -1,0 +1,207 @@
+.footer{
+
+    margin-top:32px;
+
+    padding:55px 40px 24px;
+
+    background:#090909;
+
+    border-top:1px solid rgba(198,167,105,.08);
+
+}
+
+.footer-container{
+
+    max-width:1450px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.6fr 1fr 1.2fr;
+
+    gap:55px;
+
+    align-items:start;
+
+}
+
+.footer-brand{
+
+    max-width:320px;
+
+}
+
+.footer-logo{
+
+    width:165px;
+
+    margin-bottom:26px;
+
+}
+
+.footer-social{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.footer-social a{
+
+    font-size:24px;
+
+    color:rgba(255,255,255,.82);
+
+    transition:.3s;
+
+}
+
+.footer-social a:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.footer-social .fa-envelope:hover{
+
+    color:var(--color-gold);
+
+}
+
+.footer-column h4{
+
+    color:var(--color-gold);
+
+    font-size:10px;
+
+    font-weight:600;
+
+    letter-spacing:.25em;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+
+}
+
+.footer-column p{
+
+    color:rgba(255,255,255,.72);
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:16px;
+
+}
+
+.footer-column:first-child{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.footer-bottom{
+
+    margin-top:60px;
+
+    text-align:center;
+
+}
+
+.footer-divider{
+
+    width:80px;
+
+    height:1px;
+
+    margin:0 auto 24px;
+
+    background:rgba(198,167,105,.45);
+
+}
+
+.footer-bottom p{
+
+    color:rgba(255,255,255,.72);
+
+    font-size:14px;
+
+    margin-bottom:8px;
+
+}
+
+.footer-bottom span{
+
+    display:block;
+
+    color:rgba(255,255,255,.42);
+
+    font-size:12px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+}
+
+.whatsapp-icon{
+
+    color:#25D366;
+
+}
+
+@media(max-width:992px){
+
+    .footer{
+
+        padding:50px 24px 22px;
+
+    }
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+        gap:45px;
+
+        text-align:center;
+
+    }
+
+    .footer-brand{
+
+        margin:auto;
+
+    }
+
+    .footer-logo{
+
+        margin:0 auto 24px;
+
+    }
+
+    .footer-social{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    width:100%;
+
+    margin-top:8px;
+
+}
+
+}

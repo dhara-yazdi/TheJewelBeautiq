@@ -1,48 +1,90 @@
-<nav class="fixed top-0 left-0 right-0 z-50 bg-luxury-black/95 backdrop-blur-sm border-b border-luxury-gray">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-            <a routerLink="/" class="flex items-center space-x-2">
-                <img src="/logo.png" alt="The Jewel BeautiQ" class="h-14 w-auto object-contain">
-                <span class="logo-title gold-gradient-text tracking-tight">The Jewel BeautiQ</span>
-                
+<nav class="navbar">
+
+    <div class="navbar-container">
+
+        <a routerLink="/" class="logo">
+
+            <img src="/logo-navbar.png" alt="The Jewel BeautiQ" class="navbar-logo">
+
+        </a>
+
+        <div class="desktop-menu">
+
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+
+                Home
+
             </a>
 
-            <div class="hidden md:flex items-center space-x-8">
-                <a routerLink="/" routerLinkActive="text-gold" [routerLinkActiveOptions]="{exact: true}"
-                    class="text-luxury-white hover:text-gold transition-colors duration-300 tracking-wide">Home</a>
-                <a routerLink="/collections" routerLinkActive="text-gold"
-                    class="text-luxury-white hover:text-gold transition-colors duration-300 tracking-wide">Collections</a>
-                <a routerLink="/about" routerLinkActive="text-gold"
-                    class="text-luxury-white hover:text-gold transition-colors duration-300 tracking-wide">About Us</a>
-                <a routerLink="/contact" routerLinkActive="text-gold"
-                    class="text-luxury-white hover:text-gold transition-colors duration-300 tracking-wide">Contact</a>
-            </div>
+            <a routerLink="/collections" routerLinkActive="active">
 
-            <button (click)="mobileMenuOpen.set(!mobileMenuOpen())"
-                class="md:hidden text-luxury-white hover:text-gold p-2">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    @if (mobileMenuOpen()) {
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    } @else {
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    }
-                </svg>
-            </button>
+                Collections
+
+            </a>
+
+            <a routerLink="/about" routerLinkActive="active">
+
+                About
+
+            </a>
+
+            <a routerLink="/contact" routerLinkActive="active">
+
+                Contact
+
+            </a>
+
         </div>
+
+        <button class="mobile-menu-button" (click)="mobileMenuOpen.set(!mobileMenuOpen())">
+
+            @if (mobileMenuOpen()) {
+
+            ✕
+
+            }
+
+            @else {
+
+            ☰
+
+            }
+
+        </button>
+
     </div>
 
     @if (mobileMenuOpen()) {
-    <div class="md:hidden bg-luxury-dark border-t border-luxury-gray">
-        <div class="px-4 py-4 space-y-3">
-            <a routerLink="/" (click)="mobileMenuOpen.set(false)"
-                class="block text-luxury-white hover:text-gold transition-colors py-2">Home</a>
-            <a routerLink="/collections" (click)="mobileMenuOpen.set(false)"
-                class="block text-luxury-white hover:text-gold transition-colors py-2">Collections</a>
-            <a routerLink="/about" (click)="mobileMenuOpen.set(false)"
-                class="block text-luxury-white hover:text-gold transition-colors py-2">About Us</a>
-            <a routerLink="/contact" (click)="mobileMenuOpen.set(false)"
-                class="block text-luxury-white hover:text-gold transition-colors py-2">Contact</a>
-        </div>
+
+    <div class="mobile-menu">
+
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+            (click)="mobileMenuOpen.set(false)">
+
+            Home
+
+        </a>
+
+        <a routerLink="/collections" routerLinkActive="active" (click)="mobileMenuOpen.set(false)">
+
+            Collections
+
+        </a>
+
+        <a routerLink="/about" routerLinkActive="active" (click)="mobileMenuOpen.set(false)">
+
+            About
+
+        </a>
+
+        <a routerLink="/contact" routerLinkActive="active" (click)="mobileMenuOpen.set(false)">
+
+            Contact
+
+        </a>
+
     </div>
+
     }
+
 </nav>

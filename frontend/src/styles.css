@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;700&display=swap');
 @import "tailwindcss";
 
 /* @theme {
@@ -36,13 +33,15 @@
 @layer base {
 
   .logo-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 600;
-    font-size: 2rem;
-    letter-spacing: 0.08em;
+
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    letter-spacing: .02em;
     line-height: 1;
-}
+    font-style: normal;
+
+  }
 
   /* body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -58,14 +57,49 @@
   } */
 
   body {
-    /* font-family: 'Cormorant Garamond', serif; */
-    /* font-family: 'Playfair Display', cursive; */
+
     font-family: 'Lato', sans-serif;
-    /* font-style: italic; */
-    font-weight: 500;
-    background-color: var(--color-luxury-black);
+
+    font-size: 15px;
+
+    font-weight: 300;
+
+    line-height: 1.75;
+
+    letter-spacing: .01em;
+
     color: var(--color-luxury-white);
-    letter-spacing: 0.03em;
+
+    background: var(--color-luxury-black);
+
+    -webkit-font-smoothing: antialiased;
+
+    -moz-osx-font-smoothing: grayscale;
+
+    text-rendering: optimizeLegibility;
+
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: #000;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    transition: .35s ease;
+  }
+
+  section {
+    position: relative;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   h1,
@@ -74,10 +108,17 @@
   h4,
   h5,
   h6 {
-    font-family: 'Cormorant Garamond', serif;
-    /* font-style: italic; */
-    font-weight: 600;
-    letter-spacing: 0.08em;
+
+    font-family: 'Playfair Display', serif;
+
+    font-weight: 400;
+
+    line-height: 1.1;
+
+    letter-spacing: .01em;
+
+    color: var(--color-luxury-white);
+
   }
 
   ::-webkit-scrollbar {
@@ -104,14 +145,76 @@
   } */
 
   .btn-gold {
-    @apply bg-gold text-luxury-black font-semibold px-6 py-3 rounded transition-all duration-300 hover:bg-gold-light hover:shadow-lg hover:shadow-gold/30;
 
-    letter-spacing: 0.12em;
+    @apply inline-flex items-center justify-center;
+
+    background: var(--color-gold);
+    color: #111;
+
+    padding: 16px 42px;
+
+    border: none;
+
+    border-radius: 2px;
+
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .22em;
+
     text-transform: uppercase;
+
+    transition: .35s;
+
+    cursor: pointer;
+
+  }
+
+  .btn-gold:hover {
+
+    background: var(--color-gold-light);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 15px 35px rgba(198, 167, 105, .25);
+
   }
 
   .btn-outline-gold {
-    @apply border-2 border-gold text-gold font-semibold px-6 py-3 rounded transition-all duration-300 hover:bg-gold hover:text-luxury-black;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 16px 42px;
+
+    border: 1px solid var(--color-gold);
+
+    border-radius: 2px;
+
+    color: var(--color-gold);
+
+    background: transparent;
+
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .22em;
+
+    text-transform: uppercase;
+
+    transition: .35s;
+
+  }
+
+  .btn-outline-gold:hover {
+
+    background: var(--color-gold);
+
+    color: #111;
+
+    transform: translateY(-3px);
+
   }
 
   /* .card-luxury {
@@ -119,11 +222,39 @@
   } */
 
   .card-luxury {
-    @apply bg-luxury-dark border border-luxury-gray rounded-lg overflow-hidden transition-all duration-300 hover:border-gold/50 hover:shadow-lg hover:shadow-gold/20;
 
-    background: linear-gradient(180deg,
-        #151515,
-        #0b0b0b);
+    overflow: hidden;
+
+    background: #111;
+
+    border: 1px solid rgba(198, 167, 105, .08);
+
+    border-radius: 4px;
+
+    transition: .4s;
+
+  }
+
+  .card-luxury:hover {
+
+    transform: translateY(-10px);
+
+    border-color: rgba(198, 167, 105, .35);
+
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .45);
+
+  }
+
+  .card-luxury img {
+
+    transition: .6s;
+
+  }
+
+  .card-luxury:hover img {
+
+    transform: scale(1.06);
+
   }
 
   .input-luxury {
@@ -142,19 +273,104 @@
     text-transform: uppercase;
   } */
 
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold text-center mb-4;
 
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: .02em;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width:1024px) {
+
+    .section-title {
+
+      font-size: 3rem;
+
+    }
+
+  }
+
+  .section-padding {
+
+    padding: 110px 0;
+
+  }
+
+  .section-description {
+
+    max-width: 700px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+
+    color: var(--color-luxury-silver);
+
+    line-height: 1.8;
+
+  }
+
+  .gold-line {
+
+    width: 90px;
+
+    height: 1px;
+
+    background: var(--color-gold);
+
+    margin: 18px auto 45px;
+
+  }
+
+  .luxury-image {
+
+    overflow: hidden;
+
+  }
+
+  .luxury-image img {
+
+    transition: .6s;
+
+  }
+
+  .luxury-image:hover img {
+
+    transform: scale(1.08);
+
+  }
+
+  .hover-gold {
+
+    transition: .35s;
+
+  }
+
+  .hover-gold:hover {
+
+    color: var(--color-gold);
+
+  }
+
+  .text-muted {
+
+    color: var(--color-luxury-silver);
+
   }
 
   .luxury-script {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 500;
+
+    font-family: 'Playfair Display', serif;
+
+    font-style: normal;
+
+    font-weight: 400;
+
+    letter-spacing: .01em;
+
   }
 
   .gold-gradient-text {
@@ -163,14 +379,20 @@
 
   .instagram-icon {
     background: radial-gradient(circle at 30% 107%,
-            #fdf497 0%,
-            #fdf497 5%,
-            #fd5949 45%,
-            #d6249f 60%,
-            #285AEB 90%);
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285AEB 90%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .whatsapp-icon {
+
+    color: #25D366;
+
 }
 
 }
