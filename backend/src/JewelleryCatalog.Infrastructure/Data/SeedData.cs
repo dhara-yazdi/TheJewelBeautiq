@@ -18,8 +18,8 @@ public static class SeedData
         var admin = new AdminUser
         {
             Username = "admin",
-            Email = "admin@luxuryjewels.com",
-            PasswordHash = AuthService.HashPassword("Admin@123"),
+            Email = "Thejewelbeautiq@gmail.com",
+            PasswordHash = AuthService.HashPassword("TJB@2026"),
             FullName = "System Administrator"
         };
         context.AdminUsers.Add(admin);

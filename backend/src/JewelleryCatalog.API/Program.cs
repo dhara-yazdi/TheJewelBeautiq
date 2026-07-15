@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Luxury Jewellery Catalog API",
+        Title = "The Jewel Beautiq API",
         Version = "v1",
         Description = "API for managing a luxury jewellery catalog"
     });
@@ -42,7 +42,13 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-var jwtSecret = builder.Configuration["Jwt:Secret"] ?? "DefaultSuperSecretKeyForDevelopment12345!";
+var jwtSecret = builder.Configuration["Jwt:Secret"];//?? "DefaultSuperSecretKeyForDevelopment12345!";
+
+if (string.IsNullOrWhiteSpace(jwtSecret))
+{
+    throw new Exception("JWT Secret is missing.");
+}
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -66,16 +72,34 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAngular", policy =>
+//    {
+//        policy.WithOrigins("http://localhost:4200",
+//            "https://thejewelbeautiq.com",
+//            "https://www.thejewelbeautiq.com")
+//            .AllowAnyHeader()
+//            .AllowAnyMethod()
+//            .AllowCredentials();
+//    });
+//});
+
+var allowedOrigins = builder.Configuration
+    .GetSection("Cors:AllowedOrigins")
+    .Get<string[]>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
+        policy.WithOrigins(allowedOrigins!)
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
+
 
 var app = builder.Build();
 
@@ -84,12 +108,16 @@ using (var scope = app.Services.CreateScope())
     await SeedData.InitializeAsync(scope.ServiceProvider);
 }
 
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
+//}
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+    app.UseHsts();
 }
-
 app.UseStaticFiles();
 app.UseCors("AllowAngular");
 app.UseAuthentication();
