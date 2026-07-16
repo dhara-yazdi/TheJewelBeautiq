@@ -1,30 +1,32 @@
 <!-- ================= HERO ================= -->
 
-<section class="relative h-screen overflow-hidden bg-black">
+<section class="relative min-h-screen lg:h-screen overflow-hidden bg-black">
 
   <!-- Background -->
   <div class="absolute inset-0">
 
-    <img src="/assets/images/hero-banner.png" class="w-full h-full object-cover object-[72%] scale-[1.08]"
+    <img src="/assets/images/hero-banner.png"
+      class="w-full h-full object-cover object-[82%] sm:object-[76%] lg:object-[72%] scale-105 lg:scale-[1.08]"
       alt="The Jewel BeautiQ">
 
     <!-- Slight dark overlay -->
     <div class="absolute inset-0 bg-black/10"></div>
 
     <!-- Left gradient -->
-    <div class="absolute inset-0 bg-gradient-to-r from-black/88 via-black/48 via-35% to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 lg:from-black/88 lg:via-black/48 to-transparent"></div>
 
   </div>
 
   <!-- Content -->
-  <div class="relative z-10 max-w-[1500px] mx-auto h-full px-8 lg:px-16 xl:px-20">
+  <div class="relative z-10 max-w-[1500px] mx-auto h-full px-5 sm:px-6 lg:px-16 xl:px-20">
 
-    <div class="flex items-center h-full pt-10 lg:pt-16">
+    <div class="flex items-center h-full pt-24 sm:pt-20 lg:pt-16">
 
       <div class="max-w-[560px]">
 
         <!-- Tag -->
-        <p class="uppercase tracking-[9px] text-gold text-[12px] mb-7 whitespace-nowrap opacity-90">
+        <p class=" uppercase tracking-[3px] sm:tracking-[5px] lg:tracking-[9px] text-[10px]
+          sm:text-[11px] lg:text-[12px] text-gold mb-6 opacity-90">
 
           Fine Jewellery • Certified Loose Diamonds
 
@@ -32,7 +34,7 @@
 
         <!-- Heading -->
         <h1
-          class="font-serif font-normal text-[42px] md:text-[44px] lg:text-[48px] xl:text-[52px] leading-[1.06] tracking-[-0.03em] text-white">
+          class="font-serif font-normal text-[32px] sm:text-[36px] md:text-[42px] lg:text-[48px] xl:text-[52px] leading-[1.06] tracking-[-0.03em] text-white">
 
           Crafted for
 
@@ -45,7 +47,7 @@
         </h1>
 
         <!-- Description -->
-        <p class="mt-10 max-w-[620px] text-[16px] lg:text-[17px] leading-[2rem] text-white/75">
+        <p class="mt-7 lg:mt-10 max-w-[620px] text-[15px] sm:text-[16px] lg:text-[18px] leading-7 lg:leading-8 text-white/75">
 
           Discover handcrafted jewellery, bespoke creations and certified
           loose diamonds designed for every unforgettable moment.
@@ -53,17 +55,17 @@
         </p>
 
         <!-- Buttons -->
-        <div class="flex gap-5 mt-12">
+        <div class="flex flex-col sm:flex-row gap-4 mt-10">
 
           <a routerLink="/collections"
-            class="inline-flex items-center justify-center h-[46px] px-9 bg-gold text-black uppercase tracking-[2.5px] text-[12px] font-medium transition duration-300 hover:bg-[#dcc58a]">
+            class=" w-full sm:w-auto inline-flex items-center justify-center h-[46px] px-8 lg:px-9 bg-gold text-black uppercase tracking-[2.5px] text-[12px] font-medium transition duration-300 hover:bg-[#dcc58a]">
 
             Explore Collection
 
           </a>
 
           <a routerLink="/contact"
-            class="inline-flex items-center justify-center h-[46px] px-9 border border-gold/60 text-gold uppercase tracking-[2.5px] text-[12px] font-medium transition duration-300 hover:bg-gold hover:text-black">
+            class=" w-full sm:w-auto inline-flex items-center justify-center h-[46px] px-8 lg:px-9 border border-gold/60 text-gold uppercase tracking-[2.5px] text-[12px] font-medium transition duration-300 hover:bg-gold hover:text-black">
 
             Contact Us
 
@@ -234,10 +236,7 @@
 
       <div class="overflow-hidden">
 
-        <img
-          src="/assets/images/craftsman.jpg"
-          alt="Craftsmanship"
-          class="w-full h-[560px] object-cover">
+        <img src="/assets/images/craftsman.jpg" alt="Craftsmanship" class="w-full h-[560px] object-cover">
 
       </div>
 
@@ -298,7 +297,7 @@
 
           </div>
 
-          
+
 
           <div class="flex items-center gap-4">
 
@@ -312,8 +311,7 @@
 
         </div>
 
-        <a
-          routerLink="/about"
+        <a routerLink="/about"
           class="uppercase tracking-[4px] text-[12px] text-gold hover:tracking-[5px] transition-all duration-300">
 
           Discover Our Story →
