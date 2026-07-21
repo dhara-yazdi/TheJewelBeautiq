@@ -1,0 +1,246 @@
+:host {
+    display: block;
+    background: #000;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.gold-gradient-text {
+    background: linear-gradient(135deg, #f6df9d 0%, #c6a769 45%, #a7864b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===========================
+   CATEGORY NAVIGATION
+=========================== */
+
+.collection-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 42px;
+    min-height: 78px;
+}
+
+.collection-tabs button {
+    position: relative;
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,.72);
+    font-size: .82rem;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .35s;
+    padding: 0;
+}
+
+.collection-tabs button:hover {
+    color: var(--color-gold);
+}
+
+.collection-tabs button::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-14px;
+    width:0;
+    height:2px;
+    background:var(--color-gold);
+    transition:.35s;
+}
+
+.collection-tabs button.active{
+    color:var(--color-gold);
+}
+
+.collection-tabs button.active::after{
+    width:100%;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.collection-grid{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:40px;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.product-card{
+
+    display:block;
+    text-decoration:none;
+
+}
+
+.product-image{
+
+    overflow:hidden;
+    background:#080808;
+
+}
+
+.product-image img{
+
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+
+    transition:
+    transform .7s ease;
+
+}
+
+.product-card:hover .product-image img{
+
+    transform:scale(1.06);
+
+}
+
+.product-placeholder{
+
+    aspect-ratio:1/1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:70px;
+
+    color:rgba(198,167,105,.35);
+
+}
+
+.product-content{
+
+    padding-top:22px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.product-content h3{
+
+    color:white;
+
+    font-size:22px;
+
+    font-family:"Playfair Display",serif;
+
+    font-weight:500;
+
+    line-height:1.35;
+
+    transition:.35s;
+
+}
+
+.product-content span{
+
+    color:rgba(255,255,255,.45);
+
+    font-size:12px;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    transition:.35s;
+
+    white-space:nowrap;
+
+}
+
+.product-card:hover h3{
+
+    color:var(--color-gold);
+
+}
+
+.product-card:hover span{
+
+    color:var(--color-gold);
+
+    transform:translateX(6px);
+
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media(max-width:1100px){
+
+.collection-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+gap:34px;
+
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+.collection-grid{
+
+grid-template-columns:1fr;
+
+gap:34px;
+
+}
+
+.collection-tabs{
+
+gap:24px;
+
+padding:18px 0;
+
+}
+
+.collection-tabs button{
+
+font-size:.72rem;
+
+letter-spacing:.18em;
+
+}
+
+.product-content{
+
+padding-top:18px;
+
+}
+
+.product-content h3{
+
+font-size:20px;
+
+}
+
+}

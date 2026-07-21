@@ -18,4 +18,5 @@ export interface CreateInquiry {
   subject: string;
   message: string;
   productId: number | null;
+   productName: string;
 }

@@ -1,120 +1,252 @@
 <div class="pt-24 min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 class="section-title"><span class="gold-gradient-text">Contact Us</span></h1>
-        <p class="text-luxury-silver text-center mb-12 max-w-2xl mx-auto">
-            We'd love to hear from you. Whether you have a question about a piece or wish to
-            schedule a private viewing, our team is here to help.
-        </p>
 
-        <!-- <div class="grid grid-cols-1 lg:grid-cols-3 gap-12"> -->
-        <div class="max-w-3xl mx-auto">
-            <!-- Contact Info -->
-            <!-- <div class="space-y-8">
-                <div class="p-6 border border-luxury-gray rounded-lg">
-                    <h3 class="text-gold font-semibold mb-3">Visit Us</h3>
-                    <p class="text-luxury-silver text-sm">Deira, Goldsouq,<br>Dubai, United Arab Emirates</p>
-                </div>
-                <div class="p-6 border border-luxury-gray rounded-lg">
-                    <h3 class="text-gold font-semibold mb-3">Call Us</h3>
-                    <p class="text-luxury-silver text-sm">+971 58 848-6935</p>
-                </div>
-                <div class="p-6 border border-luxury-gray rounded-lg">
-                    <h3 class="text-gold font-semibold mb-3">Email Us</h3>
-                    <p class="text-luxury-silver text-sm lowercase font-sans">Thejewelbeautiq&#64;gmail.com</p>
-                </div>
-                <div class="p-6 border border-luxury-gray rounded-lg">
-                    <h3 class="text-gold font-semibold mb-3">Business Hours</h3>
-                    <p class="text-luxury-silver text-sm">Mon - Sat: 9am - 6pm<br>Sun: Closed</p>
-                </div>
-            </div> -->
+    <!-- Hero -->
 
-            <!-- Contact Form -->
-            <div class="lg:col-span-2">
-                @if (submitted()) {
-                <div class="text-center py-16 border border-gold/30 rounded-lg bg-gold/5">
-                    <div class="text-5xl mb-4 text-gold">&#10003;</div>
-                    <h3 class="text-2xl font-bold text-luxury-white mb-3">Thank You!</h3>
-                    <p class="text-luxury-silver">Your inquiry has been submitted. We'll get back to you within 24
-                        hours.</p>
-                    <button (click)="resetForm()" class="btn-outline-gold mt-6">Send Another Inquiry</button>
-                </div>
-                } @else {
-                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    <div class="max-w-[1500px] mx-auto px-6 lg:px-16 pt-6 pb-12">
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="max-w-2xl mx-auto text-center">
 
-                        <div>
-                            <label class="block text-sm text-luxury-silver mb-2">Full Name *</label>
+            <p class="
+                uppercase
+                tracking-[3px]
+                sm:tracking-[5px]
+                lg:tracking-[8px]
+                text-gold
+                text-[10px]
+                sm:text-[11px]
+                lg:text-[12px]
+                mb-5
+                opacity-90">
 
-                            <input type="text" formControlName="name" class="input-luxury" placeholder="Your name" />
+                Contact Us
 
-                            @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
-                            <small class="text-red-500">Name is required</small>
-                            }
-                        </div>
+            </p>
 
-                        <div>
-                            <label class="block text-sm text-luxury-silver mb-2">Email *</label>
+            <h1 class="font-serif text-white text-[42px] md:text-[52px] lg:text-[54px] leading-[1.05]">
 
-                            <input type="email" formControlName="email" class="input-luxury lowercase font-sans"
-                                placeholder="your@email.com" />
+                Begin Your
 
-                            @if (contactForm.get('email')?.touched) {
 
-                            @if (contactForm.get('email')?.hasError('required')) {
-                            <small class="text-red-500">Email is required</small>
-                            }
+                <span class="block gold-gradient-text">
 
-                            @if (contactForm.get('email')?.hasError('email')) {
-                            <small class="text-red-500">Please enter a valid email address</small>
-                            }
+                    Jewellery Journey
 
-                            }
-                        </div>
+                </span>
 
-                    </div>
+            </h1>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <p class="mt-5 text-white/70 text-[17px] leading-8 max-w-xl mx-auto">
 
-                        <div>
-                            <label class="block text-sm text-luxury-silver mb-2">Phone</label>
+                We'd be delighted to assist you with jewellery inquiries, bespoke creations, and certified loose
+                diamonds.
 
-                            <input type="tel" formControlName="phone" class="input-luxury"
-                                placeholder="+91 9876543210" />
-                        </div>
+            </p>
 
-                        <div>
-                            <label class="block text-sm text-luxury-silver mb-2">Subject *</label>
-
-                            <input type="text" formControlName="subject" class="input-luxury"
-                                placeholder="How can we help?" />
-
-                            @if (contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched) {
-                            <small class="text-red-500">Subject is required</small>
-                            }
-                        </div>
-
-                    </div>
-
-                    <div>
-                        <label class="block text-sm text-luxury-silver mb-2">Message *</label>
-
-                        <textarea formControlName="message" rows="6" class="input-luxury resize-none"
-                            placeholder="Tell us about your inquiry..."></textarea>
-
-                        @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
-                        <small class="text-red-500">Message is required</small>
-                        }
-                    </div>
-
-                    <button type="submit" [disabled]="contactForm.invalid || submitting()"
-                        class="btn-gold w-full text-lg">
-                        {{ submitting() ? 'Sending...' : 'Send Inquiry' }}
-                    </button>
-
-                </form>
-                }
-            </div>
         </div>
+
     </div>
+
+    <!-- Form -->
+
+    <div class="max-w-3xl mx-auto px-6 pb-20">
+
+        @if(submitted()){
+
+        <div class="text-center py-16 border border-gold/30 rounded-lg bg-gold/5">
+
+            <div class="text-5xl mb-4 text-gold">
+
+                ✓
+
+            </div>
+
+            <h3 class="text-3xl font-serif text-white mb-4">
+
+                Thank You for contacting The Jewel BeautiQ.
+
+            </h3>
+
+            <p class="text-white/70">
+
+                Our team will review your inquiry and respond as soon as possible.
+
+            </p>
+
+            <button (click)="resetForm()" class="btn-outline-gold mt-8">
+
+                Send Another Inquiry
+
+            </button>
+
+        </div>
+
+        } @else {
+
+        @if(contactForm.value.productId){
+
+        <div class="mb-10 rounded-lg border border-gold/20 bg-gold/5 p-6">
+
+            <p class="uppercase tracking-[6px] text-gold text-[11px] mb-3">
+
+                Inquiry For
+
+            </p>
+
+            <h3 class="font-serif text-white text-2xl">
+
+                {{ contactForm.value.productName }}
+
+            </h3>
+
+            <p class="text-white/60 mt-2">
+
+                Product ID :
+                {{ contactForm.value.productId }}
+
+            </p>
+
+        </div>
+
+        }
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div>
+
+                    <label class="block text-white/70 mb-2">
+
+                        Full Name *
+
+                    </label>
+
+                    <input type="text" formControlName="name" class="input-luxury" placeholder="Your name">
+
+                    @if(contactForm.get('name')?.invalid &&
+                    contactForm.get('name')?.touched){
+
+                    <small class="text-red-500">
+
+                        Name is required
+
+                    </small>
+
+                    }
+
+                </div>
+
+                <div>
+
+                    <label class="block text-white/70 mb-2">
+
+                        Email *
+
+                    </label>
+
+                    <input type="email" formControlName="email" class="input-luxury lowercase font-sans"
+                        placeholder="your@email.com">
+
+                    @if(contactForm.get('email')?.touched){
+
+                    @if(contactForm.get('email')?.hasError('required')){
+
+                    <small class="text-red-500">
+
+                        Email is required
+
+                    </small>
+
+                    }
+
+                    @if(contactForm.get('email')?.hasError('email')){
+
+                    <small class="text-red-500">
+
+                        Enter a valid email
+
+                    </small>
+
+                    }
+
+                    }
+
+                </div>
+
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <div>
+
+                    <label class="block text-white/70 mb-2">
+
+                        Phone
+
+                    </label>
+
+                    <input type="tel" formControlName="phone" class="input-luxury" placeholder="+91 9876543210">
+
+                </div>
+
+                <div>
+
+                    <label class="block text-white/70 mb-2">
+
+                        Subject *
+
+                    </label>
+
+                    <input type="text" formControlName="subject" class="input-luxury">
+
+                    @if(contactForm.get('subject')?.invalid &&
+                    contactForm.get('subject')?.touched){
+
+                    <small class="text-red-500">
+
+                        Subject is required
+
+                    </small>
+
+                    }
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <label class="block text-white/70 mb-2">
+
+                    Message *
+
+                </label>
+
+                <textarea rows="8" formControlName="message" class="input-luxury resize-none"></textarea>
+
+                @if(contactForm.get('message')?.invalid &&
+                contactForm.get('message')?.touched){
+
+                <small class="text-red-500">
+
+                    Message is required
+
+                </small>
+
+                }
+
+            </div>
+
+            <button type="submit" [disabled]="contactForm.invalid || submitting()" class="btn-gold w-full">
+
+                {{ submitting() ? 'Sending...' : 'Send Inquiry' }}
+
+            </button>
+
+        </form>
+
+        }
+
+    </div>
+
 </div>

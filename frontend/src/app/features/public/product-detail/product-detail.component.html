@@ -1,40 +1,58 @@
 <div class="pt-24 min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <div class="max-w-[1500px] mx-auto px-6 lg:px-16 py-12">
+
         @if (loading()) {
+
         <app-loading-spinner />
+
         } @else if (product()) {
-        <div class="mb-6">
+
+        <!-- Back -->
+
+        <div class="mb-8">
+
             <a routerLink="/collections" class="text-gold hover:text-gold-light transition-colors">
+
                 &larr; Back to Collections
+
             </a>
+
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Image Gallery -->
+        <!-- Product -->
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+            <!-- ================= LEFT ================= -->
+
             <div>
-                <div
-                    class="aspect-square bg-luxury-dark border border-luxury-gray rounded-lg flex items-center justify-center mb-4">
+
+                <div class="aspect-square bg-luxury-dark border border-luxury-gray rounded-lg overflow-hidden mb-4">
+
                     @if (selectedImage()) {
+
                     <img [src]="selectedImage()" [alt]="product()!.name" class="w-full h-full object-cover">
+
                     } @else {
+
                     <div class="w-full h-full flex items-center justify-center">
-                        <div class="text-9xl text-gold/30">&#9830;</div>
+
+                        <div class="text-9xl text-gold/30">
+                            &#9830;
+                        </div>
+
                     </div>
+
                     }
+
                 </div>
-                <!-- @if (product()!.images.length > 1) {
+
+                @if(product()!.images.length > 1){
+
                 <div class="grid grid-cols-4 gap-3">
-                    @for (img of product()!.images; track img.id) {
-                    <div
-                        class="aspect-square bg-luxury-dark border border-luxury-gray rounded cursor-pointer hover:border-gold transition-colors flex items-center justify-center">
-                        <div class="text-2xl text-gold/30">&#9830;</div>
-                    </div>
-                    }
-                </div>
-                } -->
-                @if (product()!.images.length > 1) {
-                <div class="grid grid-cols-4 gap-3">
-                    @for (img of product()!.images; track img.id) {
+
+                    @for(img of product()!.images; track img.id){
 
                     <div class="aspect-square rounded overflow-hidden cursor-pointer border transition-colors"
                         [class.border-gold]="selectedImage() === api.imgUrl + img.imageUrl"
@@ -46,51 +64,201 @@
                     </div>
 
                     }
+
                 </div>
+
                 }
+
             </div>
 
-            <!-- Product Info -->
-            <div>
-                <p class="text-sm text-gold tracking-widest uppercase mb-2">{{ product()!.categoryName }}</p>
-                <h1 class="text-3xl md:text-4xl font-bold text-luxury-white mb-4">{{ product()!.name }}</h1>
-                <!-- <p class="text-4xl font-bold text-gold mb-6">{{ product()!.price | currency }}</p> -->
+            <!-- ================= RIGHT ================= -->
 
-                <div class="border-t border-b border-luxury-gray py-6 mb-6">
-                    <p class="text-luxury-silver leading-relaxed">{{ product()!.description }}</p>
+            <div class="flex flex-col justify-center">
+
+                <p class="uppercase tracking-[6px] text-gold text-[11px] mb-5 opacity-90">
+
+                    {{ product()!.categoryName }}
+
+                </p>
+
+                <h1 class="font-serif text-white text-[42px] md:text-[50px] leading-tight">
+
+                    {{ product()!.name }}
+
+                </h1>
+
+                @if(product()!.description){
+
+                <p class="mt-6 text-white/70 text-[17px] leading-8">
+
+                    {{ product()!.description }}
+
+                </p>
+
+                }
+
+                <div class="mt-10 space-y-4">
+
+                    <div class="flex items-center gap-3">
+
+                        <span class="text-gold">✦</span>
+
+                        <span class="text-white/80">
+
+                            Certified Diamonds
+
+                        </span>
+
+                    </div>
+
+                    <div class="flex items-center gap-3">
+
+                        <span class="text-gold">✦</span>
+
+                        <span class="text-white/80">
+
+                            Premium Craftsmanship
+
+                        </span>
+
+                    </div>
+
+                    <div class="flex items-center gap-3">
+
+                        <span class="text-gold">✦</span>
+
+                        <span class="text-white/80">
+
+                            Designed for Timeless Elegance
+
+                        </span>
+
+                    </div>
+
                 </div>
 
-                <div class="space-y-3 mb-8">
-                    <div class="flex justify-between">
-                        <span class="text-luxury-silver">Material</span>
-                        <span class="text-luxury-white font-medium">{{ product()!.material }}</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-luxury-silver">Weight</span>
-                        <span class="text-luxury-white font-medium">{{ product()!.weight | number:'1.1-1' }}g</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-luxury-silver">SKU</span>
-                        <span class="text-luxury-white font-medium">{{ product()!.sku }}</span>
-                    </div>
-                </div>
+                <div class="mt-10 space-y-4">
 
-                <div class="space-y-4">
-                    <a [routerLink]="['/contact']" [queryParams]="{product: product()!.id}"
-                        class="btn-gold w-full text-center block text-lg">
-                        Inquire About This Piece
+                    <a [routerLink]="['/contact']" [queryParams]="{
+                                productId: product()!.id,
+                                productName: product()!.name
+                            }" class="btn-gold w-full text-center block">
+
+                        Enquire Now
+
                     </a>
-                    <a routerLink="/contact" class="btn-outline-gold w-full text-center block">
-                        Book a Viewing
+
+                    <a href="https://wa.me/91XXXXXXXXXX" target="_blank"
+                        class="btn-outline-gold w-full text-center block">
+
+                        WhatsApp Inquiry
+
                     </a>
+
                 </div>
+
+                <!-- ===================================================== -->
+                <!-- Future Details (Keep for later if client wants) -->
+                <!--
+
+                <div class="space-y-3 mt-10">
+
+                    <div class="flex justify-between">
+
+                        <span>Material</span>
+
+                        <span>{{ product()!.material }}</span>
+
+                    </div>
+
+                    <div class="flex justify-between">
+
+                        <span>Weight</span>
+
+                        <span>{{ product()!.weight }}</span>
+
+                    </div>
+
+                    <div class="flex justify-between">
+
+                        <span>SKU</span>
+
+                        <span>{{ product()!.sku }}</span>
+
+                    </div>
+
+                </div>
+
+                -->
+
             </div>
+
         </div>
-        } @else {
-        <div class="text-center py-20">
-            <h2 class="text-2xl text-luxury-silver">Product not found</h2>
-            <a routerLink="/collections" class="btn-gold mt-6 inline-block">Back to Collections</a>
-        </div>
+
+        <!-- ================= ABOUT ================= -->
+
+        @if(product()!.description){
+
+        <section class="mt-24 border-t border-white/10 pt-16">
+
+            <div class="max-w-3xl">
+
+                <p class="uppercase tracking-[6px] text-gold text-[11px] mb-5 opacity-90">
+
+                    About This Piece
+
+                </p>
+
+                <p class="text-white/70 leading-8 text-[17px]">
+
+                    {{ product()!.description }}
+
+                </p>
+
+            </div>
+
+        </section>
+
         }
+
+        <!-- ================================================= -->
+        <!-- Related Jewellery (Next Step) -->
+        <!--
+
+        <section class="mt-24">
+
+            <p class="uppercase tracking-[6px] text-gold text-[11px] mb-8">
+
+                You May Also Like
+
+            </p>
+
+            Product Cards Here
+
+        </section>
+
+        -->
+
+        } @else {
+
+        <div class="text-center py-24">
+
+            <h2 class="text-2xl text-white">
+
+                Product not found
+
+            </h2>
+
+            <a routerLink="/collections" class="btn-gold inline-block mt-8">
+
+                Back to Collections
+
+            </a>
+
+        </div>
+
+        }
+
     </div>
+
 </div>

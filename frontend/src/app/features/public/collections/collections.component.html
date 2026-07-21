@@ -1,76 +1,154 @@
-<div class="pt-24 min-h-screen">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 class="section-title"><span class="gold-gradient-text">Our Collections</span></h1>
-        <p class="text-luxury-silver text-center mb-12 max-w-2xl mx-auto">
-            Browse our exquisite selection of fine jewellery, crafted for those who appreciate true luxury.
-        </p>
+<section class="pt-24 bg-black min-h-screen">
 
-        <!-- Filters -->
-        <div class="flex flex-col md:flex-row gap-4 mb-10">
-            <div class="flex-1">
-                <input type="text" placeholder="Search jewellery..." [ngModel]="searchTerm()"
-                    (ngModelChange)="onSearch($event)" class="input-luxury" />
-            </div>
-            <div class="flex gap-2 flex-wrap">
-                <button (click)="filterByCategory(null)"
-                    [class]="!selectedCategory() ? 'btn-gold text-sm px-4 py-2' : 'btn-outline-gold text-sm px-4 py-2'">
-                    All
-                </button>
-                @for (cat of categoryService.categories(); track cat.id) {
-                <button (click)="filterByCategory(cat.id)"
-                    [class]="selectedCategory() === cat.id ? 'btn-gold text-sm px-4 py-2' : 'btn-outline-gold text-sm px-4 py-2'">
-                    {{ cat.name }}
-                </button>
-                }
-            </div>
+    <!-- Hero -->
+    <div class="max-w-[1500px] mx-auto px-6 lg:px-16 pt-6 pb-10">
+
+        <div class="max-w-2xl mx-auto text-center">
+
+            <p class="
+                uppercase
+                tracking-[3px]
+                sm:tracking-[5px]
+                lg:tracking-[8px]
+                text-gold
+                text-[10px]
+                sm:text-[11px]
+                lg:text-[12px]
+                mb-5
+                opacity-90
+                ">
+                Our Collection
+            </p>
+
+            <h1 class="font-serif text-white text-[42px] md:text-[52px] lg:text-[54px] leading-[1.05]">
+
+                Timeless Diamond
+
+                <span class="block gold-gradient-text">
+
+                    Creations
+
+                </span>
+
+            </h1>
+
+            <p class="mt-5 text-white/70 text-[17px] leading-8 max-w-xl mx-auto">
+
+                Discover handcrafted jewellery and certified loose diamonds,
+                thoughtfully created for every unforgettable occasion.
+
+            </p>
+
         </div>
 
-        @if (productService.loading()) {
-        <app-loading-spinner />
-        } @else {
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            @for (product of productService.products(); track product.id) {
-            <a [routerLink]="['/product', product.id]" class="card-luxury group cursor-pointer">
-                <div class="aspect-square bg-luxury-gray flex items-center justify-center overflow-hidden">
-                    <!-- <div class="text-6xl text-gold/30 group-hover:text-gold/50 transition-colors">&#9830;</div> -->
-                    @if (product.primaryImageUrl) {
-                    <img [src]="this.api.imgUrl + product.primaryImageUrl" [alt]="product.name"
-                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                    } @else {
-                    <div class="w-full h-full flex items-center justify-center">
-                        <div class="text-6xl text-gold/30 group-hover:text-gold/50 transition-colors">
-                            &#9830;
-                        </div>
-                    </div>
-                    }
-                </div>
-                <div class="p-5">
-                    <p class="text-xs text-gold tracking-widest uppercase mb-1">{{ product.categoryName }}</p>
-                    <h3 class="text-base font-semibold text-luxury-white group-hover:text-gold transition-colors mb-1">
-                        {{ product.name }}
-                    </h3>
-                    <p class="text-sm text-luxury-silver mb-2">{{ product.material }}</p>
-                    <!-- <p class="text-gold font-bold text-lg">{{ product.price | currency }}</p> -->
-                </div>
-            </a>
-            } @empty {
-            <div class="col-span-full text-center py-12">
-                <p class="text-luxury-silver text-lg">No products found.</p>
-            </div>
-            }
-        </div>
-
-        <!-- Pagination -->
-        @if (totalPages() > 1) {
-        <div class="flex justify-center gap-2 mt-10">
-            @for (p of pages(); track p) {
-            <button (click)="goToPage(p)"
-                [class]="currentPage() === p ? 'bg-gold text-luxury-black px-4 py-2 rounded font-semibold' : 'bg-luxury-gray text-luxury-white px-4 py-2 rounded hover:bg-luxury-gray/80'">
-                {{ p }}
-            </button>
-            }
-        </div>
-        }
-        }
     </div>
-</div>
+
+    <!-- Category Navigation -->
+
+    <div class="border-y border-white/10">
+
+        <div class="max-w-[1500px] mx-auto px-6 lg:px-16">
+
+            <div class="collection-tabs">
+
+                <button (click)="filterByCategory(null)" [class.active]="selectedCategory() === null">
+
+                    All
+
+                </button>
+
+                @for (cat of categoryService.categories(); track cat.id) {
+
+                <button (click)="filterByCategory(cat.id)" [class.active]="selectedCategory() === cat.id">
+
+                    {{ cat.name }}
+
+                </button>
+
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Products -->
+
+    <div class="max-w-[1500px] mx-auto px-6 lg:px-16 pt-14 pb-20">
+
+        @if(productService.loading()){
+
+        <app-loading-spinner />
+
+        } @else {
+
+        <div class="collection-grid">
+
+            @for(product of productService.products(); track product.id){
+
+            <a [routerLink]="['/product', product.id]" class="product-card">
+
+                <div class="product-image">
+
+                    @if(product.primaryImageUrl){
+
+                    <img [src]="api.imgUrl + product.primaryImageUrl" [alt]="product.name">
+
+                    } @else {
+
+                    <div class="product-placeholder">
+
+                        &#9830;
+
+                    </div>
+
+                    }
+
+                </div>
+
+                <div class="product-content">
+
+                    <h3>
+
+                        {{product.name}}
+
+                    </h3>
+
+                    <span>
+
+                        Explore →
+
+                    </span>
+
+                </div>
+
+            </a>
+
+            } @empty {
+
+            <div class="col-span-full text-center py-20">
+
+                <h3 class="text-white text-2xl font-serif">
+
+                    No Products Found
+
+                </h3>
+
+                <p class="text-white/60 mt-4">
+
+                    Please check back soon.
+
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+        }
+
+    </div>
+
+</section>

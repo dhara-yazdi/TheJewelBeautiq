@@ -9,8 +9,9 @@ import { ApiService } from '../../../core/services/api.service';
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [RouterLink, LoadingSpinnerComponent,  DecimalPipe],
-  templateUrl: './product-detail.component.html'
+  imports: [RouterLink, LoadingSpinnerComponent, /*CurrencyPipe, DecimalPipe*/],
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
   product = signal<Product | null>(null);

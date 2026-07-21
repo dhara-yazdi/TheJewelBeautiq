@@ -18,4 +18,5 @@ public record CreateInquiryDto(
     string Phone,
     string Subject,
     string Message,
-    int? ProductId);
+    int? ProductId,
+    string? ProductName);

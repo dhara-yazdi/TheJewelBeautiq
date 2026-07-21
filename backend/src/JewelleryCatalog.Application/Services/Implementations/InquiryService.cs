@@ -2,16 +2,19 @@ using JewelleryCatalog.Application.DTOs;
 using JewelleryCatalog.Application.Services.Interfaces;
 using JewelleryCatalog.Domain.Entities;
 using JewelleryCatalog.Domain.Interfaces;
+using JewelleryCatalog.Application.Email;
 
 namespace JewelleryCatalog.Application.Services.Implementations;
 
 public class InquiryService : IInquiryService
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IEmailService _emailService;
 
-    public InquiryService(IUnitOfWork unitOfWork)
+    public InquiryService(IUnitOfWork unitOfWork, IEmailService emailService)
     {
         _unitOfWork = unitOfWork;
+        _emailService = emailService;
     }
 
     public async Task<PagedResultDto<InquiryDto>> GetInquiriesAsync(
@@ -46,6 +49,26 @@ public class InquiryService : IInquiryService
 
         await _unitOfWork.Inquiries.AddAsync(inquiry);
         await _unitOfWork.SaveChangesAsync();
+
+        try
+        {
+            var html = InquiryEmailTemplate.Build(dto);
+
+            await _emailService.SendAsync(new EmailRequest
+            {
+                Subject = $"New Product Inquiry - {dto.ProductName}",
+                HtmlBody = html,
+                ReplyTo = dto.Email,
+                ReplyToName = dto.Name
+            });
+        }
+        catch (Exception)
+        {
+            // Email sending failed.
+            // The inquiry has already been saved, so don't fail the request.
+            // TODO: Add logging later.
+        }
+
         return MapToDto(inquiry);
     }
 
