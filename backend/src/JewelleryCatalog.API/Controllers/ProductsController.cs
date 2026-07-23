@@ -46,8 +46,15 @@ public class ProductsController : ControllerBase
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<ProductDto>> Create(CreateProductDto dto)
     {
-        var product = await _productService.CreateProductAsync(dto);
-        return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+        try
+        {
+            var product = await _productService.CreateProductAsync(dto);
+            return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.ToString());
+        }
     }
 
     [HttpPut("{id}")]

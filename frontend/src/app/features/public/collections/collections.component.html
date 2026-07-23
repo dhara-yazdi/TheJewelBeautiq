@@ -43,25 +43,48 @@
 
     </div>
 
+
     <!-- Category Navigation -->
 
     <div class="border-y border-white/10">
 
-        <div class="max-w-[1500px] mx-auto px-6 lg:px-16">
+        <div class="max-w-[1500px] mx-auto px-6 lg:px-16 py-8">
 
-            <div class="collection-tabs">
+            <div class="category-slider">
 
-                <button (click)="filterByCategory(null)" [class.active]="selectedCategory() === null">
+                <!-- All -->
 
-                    All
+                <!-- <button class="category-card" (click)="filterByCategory(null)"
+                    [class.active]="selectedCategory() === null">
 
-                </button>
+                    <div class="category-image">
+
+                        <img src="assets/categories/all.jpg" alt="All">
+
+                    </div>
+
+                    <span>All</span>
+
+                </button> -->
+
+                <!-- Dynamic Categories -->
 
                 @for (cat of categoryService.categories(); track cat.id) {
 
-                <button (click)="filterByCategory(cat.id)" [class.active]="selectedCategory() === cat.id">
+                <button class="category-card" (click)="filterByCategory(cat.id)"
+                    [class.active]="selectedCategory() === cat.id">
 
-                    {{ cat.name }}
+                    <div class="category-image">
+
+                        <img [src]="'/assets/categories/' + cat.name.toLowerCase() + '.png'" [alt]="cat.name">
+
+                    </div>
+
+                    <span>
+
+                        {{cat.name}}
+
+                    </span>
 
                 </button>
 

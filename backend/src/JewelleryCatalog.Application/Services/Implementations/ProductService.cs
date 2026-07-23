@@ -38,25 +38,56 @@ public class ProductService : IProductService
         return product is null ? null : MapToDto(product);
     }
 
+    //public async Task<ProductDto> CreateProductAsync(CreateProductDto dto)
+    //{
+    //    var product = new Product
+    //    {
+    //        Name = dto.Name,
+    //        Description = dto.Description,
+    //        Price = dto.Price,
+    //        Sku = dto.Sku,
+    //        Material = dto.Material,
+    //        Weight = dto.Weight,
+    //        IsFeatured = dto.IsFeatured,
+    //        CategoryId = dto.CategoryId
+    //    };
+
+    //    await _unitOfWork.Products.AddAsync(product);
+    //    await _unitOfWork.SaveChangesAsync();
+
+    //    var created = await _unitOfWork.Products.GetProductWithImagesAsync(product.Id);
+    //    return MapToDto(created!);
+    //}
+
     public async Task<ProductDto> CreateProductAsync(CreateProductDto dto)
     {
-        var product = new Product
+        try
         {
-            Name = dto.Name,
-            Description = dto.Description,
-            Price = dto.Price,
-            Sku = dto.Sku,
-            Material = dto.Material,
-            Weight = dto.Weight,
-            IsFeatured = dto.IsFeatured,
-            CategoryId = dto.CategoryId
-        };
 
-        await _unitOfWork.Products.AddAsync(product);
-        await _unitOfWork.SaveChangesAsync();
+            var product = new Product
+            {
+                Name = dto.Name,
+                Description = dto.Description,
+                Price = dto.Price,
+                Sku = dto.Sku,
+                Material = dto.Material,
+                Weight = dto.Weight,
+                IsFeatured = dto.IsFeatured,
+                CategoryId = dto.CategoryId
+            };
 
-        var created = await _unitOfWork.Products.GetProductWithImagesAsync(product.Id);
-        return MapToDto(created!);
+            await _unitOfWork.Products.AddAsync(product);
+            await _unitOfWork.SaveChangesAsync();
+
+            var created = await _unitOfWork.Products.GetProductWithImagesAsync(product.Id);
+            return MapToDto(created!);
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(
+                ex.InnerException?.Message ?? ex.Message,
+                ex);
+        }
     }
 
     public async Task<ProductDto?> UpdateProductAsync(int id, UpdateProductDto dto)

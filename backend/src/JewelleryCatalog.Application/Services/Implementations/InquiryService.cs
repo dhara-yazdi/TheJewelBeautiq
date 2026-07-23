@@ -44,7 +44,7 @@ public class InquiryService : IInquiryService
             Phone = dto.Phone,
             Subject = dto.Subject,
             Message = dto.Message,
-            ProductId = dto.ProductId
+            ProductId = dto.ProductId,
         };
 
         await _unitOfWork.Inquiries.AddAsync(inquiry);

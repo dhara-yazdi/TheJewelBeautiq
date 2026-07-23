@@ -141,14 +141,15 @@
 
                     <a [routerLink]="['/contact']" [queryParams]="{
                                 productId: product()!.id,
-                                productName: product()!.name
+                                productName: product()!.name,
+                                productSku: product()!.sku
                             }" class="btn-gold w-full text-center block">
 
                         Enquire Now
 
                     </a>
 
-                    <a href="https://wa.me/91XXXXXXXXXX" target="_blank"
+                    <a [href]="whatsAppLink()" target="_blank" rel="noopener"
                         class="btn-outline-gold w-full text-center block">
 
                         WhatsApp Inquiry

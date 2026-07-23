@@ -33,6 +33,7 @@ export class ContactComponent implements OnInit {
       subject: ['', Validators.required],
       message: ['', Validators.required],
       productId: [null],
+      productSku: [''],
       productName: ['']
     });
 
@@ -40,17 +41,15 @@ export class ContactComponent implements OnInit {
 
       const productId = params['productId'];
       const productName = params['productName'];
+      const productSku = params['productSku'];
 
       if (productId) {
 
         this.contactForm.patchValue({
-
           productId: +productId,
-
           productName: productName,
-
+          productSku: productSku,
           subject: 'Product Inquiry',
-
           message:
             `Hello,
 
@@ -98,7 +97,8 @@ export class ContactComponent implements OnInit {
       subject: '',
       message: '',
       productId: null,
-      productName: ''
+      productName: '',
+      productSku: ''
     });
 
     this.submitted.set(false);

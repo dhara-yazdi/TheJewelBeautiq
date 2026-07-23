@@ -41,6 +41,11 @@ public static class InquiryEmailTemplate
         </tr>
 
         <tr>
+        <td style='padding:8px;'><strong>SKU Code</strong></td>
+        <td>#{dto.ProductSku}</td>
+        </tr>
+
+<tr>
         <td style='padding:8px;'><strong>Reference</strong></td>
         <td>#{dto.ProductId}</td>
         </tr>
