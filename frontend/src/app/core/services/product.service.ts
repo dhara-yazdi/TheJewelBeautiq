@@ -32,7 +32,7 @@ export class ProductService {
   ) { }
 
   getProducts(
-    page: number = this.pageNumber(),
+    page: number = this.pageNumber()?this.pageNumber():1,
     pageSize: number = this.pageSize(),
     categoryId?: number,
     search?: string
