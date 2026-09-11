@@ -1,207 +1,308 @@
-.footer{
+/* =========================================================
+   FOOTER
+========================================================= */
 
-    margin-top:32px;
+.footer {
+    margin-top: 32px;
+    padding: 60px 40px 24px;
 
-    padding:55px 40px 24px;
-
-    background:#090909;
-
-    border-top:1px solid rgba(198,167,105,.08);
-
+    background: #090909;
+    border-top: 1px solid rgba(198, 167, 105, .08);
 }
 
-.footer-container{
 
-    max-width:1450px;
+/* =========================================================
+   FOOTER CONTAINER
+========================================================= */
 
-    margin:auto;
+.footer-container {
+    max-width: 1450px;
+    margin: 0 auto;
 
-    display:grid;
+    display: grid;
+    grid-template-columns: 1.4fr 1.3fr 1fr 1fr;
 
-    grid-template-columns:1.6fr 1fr 1.2fr;
+    gap: 60px;
 
-    gap:55px;
-
-    align-items:start;
-
+    align-items: start;
 }
 
-.footer-brand{
 
-    max-width:320px;
+/* =========================================================
+   BRAND COLUMN
+========================================================= */
 
+.footer-brand {
+    max-width: 320px;
 }
 
-.footer-logo{
-
-    width:165px;
-
-    margin-bottom:26px;
-
+.footer-column:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.footer-social{
 
-    display:flex;
+/* =========================================================
+   FOOTER LOGO
+========================================================= */
 
-    gap:20px;
-
+.footer-logo {
+    width: 165px;
+    margin-bottom: 26px;
 }
 
-.footer-social a{
 
-    font-size:24px;
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
 
-    color:rgba(255,255,255,.82);
-
-    transition:.3s;
-
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.footer-social a:hover{
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    transform:translateY(-3px);
+    font-size: 23px;
 
+    color: rgba(255, 255, 255, .82);
+
+    text-decoration: none;
+
+    transition: transform .3s ease;
 }
 
-.footer-social .fa-envelope:hover{
 
-    color:var(--color-gold);
-
+/* Only move icons on hover */
+.footer-social a:hover {
+    transform: translateY(-3px);
 }
 
-.footer-column h4{
 
-    color:var(--color-gold);
+/* =========================================================
+   INSTAGRAM
+========================================================= */
 
-    font-size:12px;
-
-    font-weight:600;
-
-    letter-spacing:.25em;
-
-    text-transform:uppercase;
-
-    margin-bottom:20px;
-
+.footer-social .fa-instagram {
+    color: #E1306C;
 }
 
-.footer-column p{
 
-    color:rgba(255,255,255,.72);
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
-    font-size:15px;
-
-    line-height:1.8;
-
-    margin-bottom:16px;
-
+.footer-social .fa-whatsapp {
+    color: #25D366;
 }
 
-.footer-column:first-child{
 
-    display:flex;
+/* =========================================================
+   YOUTUBE
+========================================================= */
 
-    flex-direction:column;
-
-    align-items:center;
-
+.footer-social .youtube-icon {
+    color: #cf1717d7 !important;
 }
 
-.footer-bottom{
 
-    margin-top:60px;
+/* =========================================================
+   EMAIL
+========================================================= */
 
-    text-align:center;
-
+.footer-social .fa-envelope {
+    color: rgba(255, 255, 255, .82);
 }
 
-.footer-divider{
 
-    width:80px;
-
-    height:1px;
-
-    margin:0 auto 24px;
-
-    background:rgba(198,167,105,.45);
-
+/* Email can turn gold on hover */
+.footer-social a:hover .fa-envelope {
+    color: var(--color-gold);
 }
 
-.footer-bottom p{
 
-    color:rgba(255,255,255,.72);
+/* =========================================================
+   COLUMN HEADINGS
+========================================================= */
 
-    font-size:14px;
+.footer-column h4 {
+    color: var(--color-gold);
 
-    margin-bottom:8px;
+    font-size: 12px;
+    font-weight: 600;
 
+    letter-spacing: .25em;
+    text-transform: uppercase;
+
+    margin: 0 0 22px;
 }
 
-.footer-bottom span{
 
-    display:block;
+/* =========================================================
+   COLUMN CONTENT
+========================================================= */
 
-    color:rgba(255,255,255,.42);
+.footer-column p {
+    color: rgba(255, 255, 255, .72);
 
-    font-size:12px;
+    font-size: 14px;
+    line-height: 1.8;
 
-    letter-spacing:.15em;
-
-    text-transform:uppercase;
-
+    margin: 0 0 14px;
 }
 
-.whatsapp-icon{
-
-    color:#25D366;
-
+.footer-column p:last-child {
+    margin-bottom: 0;
 }
 
-@media(max-width:992px){
 
-    .footer{
+/* =========================================================
+   FOOTER LINKS
+========================================================= */
 
-        padding:50px 24px 22px;
+.footer-column a {
+    color: rgba(255, 255, 255, .72);
 
+    text-decoration: none;
+
+    transition: color .3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--color-gold);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+    margin-top: 60px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FOOTER DIVIDER
+========================================================= */
+
+.footer-divider {
+    width: 80px;
+    height: 1px;
+
+    margin: 0 auto 24px;
+
+    background: rgba(198, 167, 105, .45);
+}
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, .72);
+
+    font-size: 14px;
+
+    margin: 0 0 8px;
+}
+
+
+/* =========================================================
+   FOOTER TAGLINE
+========================================================= */
+
+.footer-bottom span {
+    display: block;
+
+    color: rgba(255, 255, 255, .42);
+
+    font-size: 12px;
+
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   WHATSAPP FLOATING ICON
+========================================================= */
+
+.whatsapp-icon {
+    color: #25D366;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .footer-container {
+        grid-template-columns: 1.3fr 1fr 1fr;
+
+        gap: 45px;
     }
 
-    .footer-container{
+    .footer-column:first-child {
+        grid-column: 1 / -1;
 
-        grid-template-columns:1fr;
-
-        gap:45px;
-
-        text-align:center;
-
+        align-items: center;
+        text-align: center;
     }
-
-    .footer-brand{
-
-        margin:auto;
-
-    }
-
-    .footer-logo{
-
-        margin:0 auto 24px;
-
-    }
-
-    .footer-social{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:20px;
-
-    width:100%;
-
-    margin-top:8px;
 
 }
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 992px) {
+
+    .footer {
+        padding: 50px 24px 22px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        text-align: center;
+    }
+
+    .footer-column:first-child {
+        grid-column: auto;
+
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-brand {
+        margin: auto;
+    }
+
+    .footer-logo {
+        margin: 0 auto 24px;
+    }
+
+    .footer-social {
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+
+        margin-top: 8px;
+    }
 
 }

@@ -58,5 +58,14 @@ export const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'terms-conditions',
+    loadComponent: () => import('./features/public/terms-conditions/terms-conditions.component').then(m => m.TermsConditionsComponent)
+  },
+
+  {
+    path: 'privacy-policy',
+    loadComponent: () => import('./features/public/privacy-policy/privacy-policy.component').then(m => m.PrivacyPolicyComponent)
+  },
   { path: '**', redirectTo: '' }
 ];
