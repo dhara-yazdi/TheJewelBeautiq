@@ -1,5 +1,10 @@
-import { Routes } from '@angular/router';
+import { Routes,ExtraOptions  } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
+
+export const routerOptions: ExtraOptions = {
+  scrollPositionRestoration: 'top',
+  anchorScrolling: 'enabled'
+};
 
 export const routes: Routes = [
   {
