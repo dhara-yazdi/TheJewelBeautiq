@@ -14,7 +14,7 @@ public class CategoryRepository : Repository<Category>, ICategoryRepository
         return await Context.Categories
             .Where(c => c.IsActive)
             .Include(c => c.Products)
-            .OrderBy(c => c.Name)
+            .OrderBy(c => c.Id)
             .ToListAsync();
     }
 

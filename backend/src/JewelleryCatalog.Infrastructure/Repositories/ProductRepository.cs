@@ -63,7 +63,7 @@ public class ProductRepository : Repository<Product>, IProductRepository
 
         var totalCount = await query.CountAsync();
         var products = await query
-            .OrderByDescending(p => p.CreatedAt)
+            .OrderByDescending(p => Guid.NewGuid())
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();

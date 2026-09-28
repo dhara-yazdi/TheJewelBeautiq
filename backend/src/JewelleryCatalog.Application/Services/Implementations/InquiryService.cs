@@ -52,11 +52,17 @@ public class InquiryService : IInquiryService
 
         try
         {
-            var html = InquiryEmailTemplate.Build(dto);
+            var isProductInquiry = dto.ProductId != null && dto.ProductId != 0;
+            
+            var html = isProductInquiry?InquiryEmailTemplate.Build(dto):ContactIEmailTemplate.BuildContactInquiry(dto);
+
+            var subject = isProductInquiry
+                            ? $"Product Inquiry - {dto.ProductName}"
+                            : "New Contact Us Inquiry";
 
             await _emailService.SendAsync(new EmailRequest
             {
-                Subject = $"New Product Inquiry - {dto.ProductName}",
+                Subject = subject,
                 HtmlBody = html,
                 ReplyTo = dto.Email,
                 ReplyToName = dto.Name
