@@ -1,4 +1,4 @@
-# Luxe Jewels - Luxury Jewellery Catalog
+# The Jewel BeautiQ - Luxury Jewellery Catalog
 
 A production-ready jewellery catalog website built with **Angular 19** and **ASP.NET Core 9**.
 
@@ -91,7 +91,7 @@ The app will be available at `http://localhost:4200`.
 
 | Username | Password |
 |----------|----------|
-| admin    | Admin@123 |
+| XYZ    | XYZ@123 |
 
 ## API Endpoints
 
